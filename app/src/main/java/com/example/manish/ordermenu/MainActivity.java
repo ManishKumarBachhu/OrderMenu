@@ -42,24 +42,14 @@ public class MainActivity extends AppCompatActivity {
         priceDisplayTextView.setText("Total Price = Rs." + cost*quantity);
     }
 
-    /*
-    private void displayfinq (int number)
-    {
-        TextView quantityTextView = (TextView) findViewById(R.id.quantityFinalTextView);
-        quantityTextView.setText("Number of plates ordered:  " + number);
-    }
-    */
-
-    private boolean tomatoSauce ()
-    {
+    private boolean tomatoSauce () {
         CheckBox tomSauceCheckBox = (CheckBox) findViewById(R.id.tomatoSauceCheckBox);
         boolean hasTomatoSauce = tomSauceCheckBox.isChecked();
         return  hasTomatoSauce;
 
     }
 
-    private boolean whiteSauce ()
-    {
+    private boolean whiteSauce () {
         CheckBox whiteSauceCheckBox = (CheckBox) findViewById(R.id.whiteSauceCheckBox);
         boolean hasWhiteSauce = whiteSauceCheckBox.isChecked();
         return hasWhiteSauce;
@@ -72,31 +62,16 @@ public class MainActivity extends AppCompatActivity {
         return finalName;
     }
 
-    /*
-    private void nameOutput(String finalName) {
-        TextView finalNameTextView = (TextView) findViewById(R.id.receiptNameTextView);
-        finalNameTextView.setText(finalName);
-    } */
-
     public void submitOrder (View view)
     {
-       // displayfinq(quantity);
-
-        //String finalName = nameInput();
-        //nameOutput(finalName);
-
        Intent intent = new Intent(this, Order_Receipt.class);
 
        intent.putExtra("Name of User",nameInput());
        intent.putExtra("No. of plates",quantity);
-       intent.putExtra("Is tomato Sauce checked?",tomatoSauce());
-       intent.putExtra("Is White Sauce checked",whiteSauce());
+       intent.putExtra("Is tomato Sauce checked?", tomatoSauce());
+       intent.putExtra("Is White Sauce checked?", whiteSauce());
 
         startActivity(intent);
-        //tomatoSauce();
-        //whiteSauce();
-
-
     }
 
 }
