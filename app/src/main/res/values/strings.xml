@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">OrderMenu</string>
+    <string name="app_name">Bazz Fries</string>
     <string name="enter_your_name_here">Enter Your Name Here</string>
     <string name="fries_menu_order">Fries Menu Order</string>
     <string name="number_of_plates_you_want_to_order">Number of plates you want to order:</string>
@@ -19,4 +19,10 @@
     <string name="name">Name:</string>
     <string name="proceed_to_payment">Proceed to Payment</string>
     <string name="white_sauce_included">White Sauce is included.</string>
+    <string name="background_image_of_app">Background Image of app</string>
+    <string name="price">Total Price = Rs.0</string>
+    <string name="price_per_plate_rs_40">Price per plate = Rs.40</string>
+    <string name="back_to_order"><![CDATA[<- Back to order]]></string>
+    <string name="order_receipt_heading">Order Receipt</string>
+    <string name="orderReceiptTextView">TextView</string>
 </resources>

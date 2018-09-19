@@ -1,7 +1,11 @@
 package com.example.manish.ordermenu;
 
+import android.content.Context;
+import android.content.Intent;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -16,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     int quantity = 0;
+    final int cost = 40;
 
     public void increment(View view)
     {
@@ -29,52 +34,35 @@ public class MainActivity extends AppCompatActivity {
         displayinq(quantity);
     }
 
-    private void displayinq (int number)
+    private void displayinq (int quantity)
     {
         TextView quantityTextView = (TextView) findViewById(R.id.quantityTextView);
-        quantityTextView.setText("" + number);
+        TextView priceDisplayTextView = (TextView) findViewById(R.id.priceDisplayTextView);
+        quantityTextView.setText("" + quantity);
+        priceDisplayTextView.setText("Total Price = Rs." + cost*quantity);
     }
 
+    /*
     private void displayfinq (int number)
     {
         TextView quantityTextView = (TextView) findViewById(R.id.quantityFinalTextView);
         quantityTextView.setText("Number of plates ordered:  " + number);
     }
+    */
 
-    private void tomatoSauce ()
+    private boolean tomatoSauce ()
     {
         CheckBox tomSauceCheckBox = (CheckBox) findViewById(R.id.tomatoSauceCheckBox);
         boolean hasTomatoSauce = tomSauceCheckBox.isChecked();
+        return  hasTomatoSauce;
 
-        if(hasTomatoSauce)
-        {
-            TextView tomatoSauceTextView = (TextView) findViewById(R.id.tomatoSRTextView);
-            tomatoSauceTextView.setText("Tomato Sauce is included.");
-        }
-
-        else
-        {
-            TextView tomatoSauceTextView = (TextView) findViewById(R.id.tomatoSRTextView);
-            tomatoSauceTextView.setText("");
-        }
     }
 
-    private void whiteSauce ()
+    private boolean whiteSauce ()
     {
         CheckBox whiteSauceCheckBox = (CheckBox) findViewById(R.id.whiteSauceCheckBox);
         boolean hasWhiteSauce = whiteSauceCheckBox.isChecked();
-
-        if(hasWhiteSauce)
-        {
-            TextView tomatoSauceTextView = (TextView) findViewById(R.id.whiteSRTextView);
-            tomatoSauceTextView.setText(com.example.manish.ordermenu.R.string.white_sauce_included);
-        }
-
-        else
-        {
-            TextView tomatoSauceTextView = (TextView) findViewById(R.id.whiteSRTextView);
-            tomatoSauceTextView.setText("");
-        }
+        return hasWhiteSauce;
     }
 
     private String nameInput()
@@ -84,22 +72,31 @@ public class MainActivity extends AppCompatActivity {
         return finalName;
     }
 
-    private void nameOutput(String finalName)
-    {
+    /*
+    private void nameOutput(String finalName) {
         TextView finalNameTextView = (TextView) findViewById(R.id.receiptNameTextView);
         finalNameTextView.setText(finalName);
-    }
+    } */
 
     public void submitOrder (View view)
     {
-        displayfinq(quantity);
+       // displayfinq(quantity);
 
-        String finalName = nameInput();
-        nameOutput(finalName);
+        //String finalName = nameInput();
+        //nameOutput(finalName);
 
-        tomatoSauce();
+       Intent intent = new Intent(this, Order_Receipt.class);
 
-        whiteSauce();
+       intent.putExtra("Name of User",nameInput());
+       intent.putExtra("No. of plates",quantity);
+       intent.putExtra("Is tomato Sauce checked?",tomatoSauce());
+       intent.putExtra("Is White Sauce checked",whiteSauce());
+
+        startActivity(intent);
+        //tomatoSauce();
+        //whiteSauce();
+
+
     }
 
 }
