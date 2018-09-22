@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,13 +25,22 @@ public class MainActivity extends AppCompatActivity {
 
     public void increment(View view)
     {
-        quantity++;
+        if(quantity<10)
+            quantity++;
+        else {
+            Toast.makeText(this, "Maximum Number of plates per order is 10", Toast.LENGTH_SHORT).show();
+        }
         displayinq(quantity);
     }
 
     public void decrement(View view)
     {
-        quantity--;
+        if(quantity>0)
+            quantity--;
+        else {
+            Toast.makeText(this, "Cannot order less than zero", Toast.LENGTH_SHORT).show();
+        }
+
         displayinq(quantity);
     }
 

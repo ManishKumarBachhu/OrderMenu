@@ -17,12 +17,12 @@
     <string name="cash">Cash</string>
     <string name="card">Card</string>
     <string name="name">Name:</string>
-    <string name="proceed_to_payment">Proceed to Payment</string>
+    <string name="email_receipt_gen">Generate Receipt in email</string>
     <string name="white_sauce_included">White Sauce is included.</string>
     <string name="background_image_of_app">Background Image of app</string>
     <string name="price">Total Price = Rs.0</string>
     <string name="price_per_plate_rs_40">Price per plate = Rs.40</string>
     <string name="back_to_order"><![CDATA[<- Back to order]]></string>
     <string name="order_receipt_heading">Order Receipt</string>
-    <string name="orderReceiptTextView">TextView</string>
+    <string name="orderReceiptTextView">Order Receipt text</string>
 </resources>
