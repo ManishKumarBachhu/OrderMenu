@@ -74,6 +74,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void submitOrder (View view)
     {
+        if(nameInput().equals("")) {
+            Toast.makeText(this, "Please enter your name", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
        Intent intent = new Intent(this, Order_Receipt.class);
 
        intent.putExtra("Name of User",nameInput());

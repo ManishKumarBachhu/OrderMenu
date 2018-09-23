@@ -34,18 +34,16 @@ public class Order_Receipt extends AppCompatActivity {
         String ts = "Tomato Sauce Included\n";
         String ws = "White Sauce Included\n";
 
+        receiptText = "Receipt : \n" +userName + "\nNumber of plates ordered = " + quantity + "\n" ;
+
         if(isTomatoSauce && isWhiteSauce)
-            receiptText = userName + "\nNumber of plates ordered = " + quantity + "\n" +
-                ts + ws + "Final Price = Rs." + 40*quantity;
+            receiptText += ts + ws ;
         else if (isTomatoSauce)
-            receiptText = userName + "\nNumber of plates ordered = " + quantity + "\n" +
-                    ts + "Final Price = Rs." + 40*quantity;
+            receiptText += ts ;
         else if (isWhiteSauce)
-            receiptText = userName + "\nNumber of plates ordered = " + quantity + "\n" +
-                    ws + "Final Price = Rs." + 40*quantity;
-        else
-            receiptText = userName + "\nNumber of plates ordered = " + quantity + "\n" +
-                    "Final Price = Rs." + 40*quantity;
+            receiptText += ws;
+
+        receiptText += "Final Price = Rs." + 40*quantity;
 
         orderReceiptDisplay.setText(receiptText);
     }
@@ -62,7 +60,7 @@ public class Order_Receipt extends AppCompatActivity {
         try {
             startActivity(emailIntent);
         } catch (ActivityNotFoundException e) {
-            Toast.makeText(this, "No email app", Toast.LENGTH_LONG);
+            Toast.makeText(this, "No email app", Toast.LENGTH_LONG).show();
         }
 
     }
