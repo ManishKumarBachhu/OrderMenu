@@ -25,4 +25,5 @@
     <string name="back_to_order"><![CDATA[<- Back to order]]></string>
     <string name="order_receipt_heading">Order Receipt</string>
     <string name="orderReceiptTextView">Order Receipt text</string>
+    <string name="title_activity_create_login">CreateLogin</string>
 </resources>
